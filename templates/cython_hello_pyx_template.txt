@@ -1,0 +1,43 @@
+# distutils: language = c++
+# coding: utf8
+
+import numpy as np
+
+def npAsContiguousArray(arr : np.array) -> np.array:
+    """
+    This method checks that the input array is contiguous. 
+    If not, returns the contiguous version of the input numpy array.
+
+    Args:
+        arr: input array.
+
+    Returns:
+        contiguous array usable in C++.
+    """
+    if not arr.flags['C_CONTIGUOUS']:
+        arr = np.ascontiguousarray(arr)
+    return arr
+
+# Begin PXD
+
+# Necessary to include the C++ code
+cdef extern from "c_hello.cpp":
+    pass
+
+# Declare the class with cdef
+cdef extern from "c_hello.h" namespace "hello":
+
+    void print_hello()
+
+# End PXD
+
+# Create a Cython extension 
+# and create a bunch of forwarding methods
+# Python extension type.
+cdef class PyHello:
+
+    def __cinit__(self):
+        pass
+
+    def say_hello(self):
+        print_hello()

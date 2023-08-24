@@ -1,0 +1,23 @@
+from setuptools import setup, Extension, find_packages
+from Cython.Build import cythonize
+
+extensions = [
+    Extension("PROJECT_NAME.hello", ["src/PROJECT_NAME/cysrc/hello/hello.pyx"]),
+]
+
+compiler_directives = { "language_level": 3, "embedsignature": True}
+extensions = cythonize(extensions, compiler_directives=compiler_directives)
+
+try:
+    setup(
+        ext_modules=extensions,
+        packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"])
+    )
+except Exception:
+    print(
+        "\n\nAn error occurred while building the project, "
+        "please ensure you have the most updated version of setuptools, "
+        "setuptools_scm and wheel with:\n"
+        "\tpip install -U setuptools setuptools_scm wheel\n\n"
+    )
+    raise

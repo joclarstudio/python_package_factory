@@ -1,0 +1,6 @@
+
+import PROJECT_NAME.hello as hi
+
+def PROJECT_NAME_cli():
+    hi_obj = hi.PyHello()
+    hi_obj.say_hello()

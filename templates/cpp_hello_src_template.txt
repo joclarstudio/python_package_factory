@@ -1,0 +1,9 @@
+#include "c_hello.h"
+
+namespace hello {
+
+    void print_hello(){
+        std::cout << "hello buddy ! You are using Cython good boy !" << std::endl;
+    }
+
+}

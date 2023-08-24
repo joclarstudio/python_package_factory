@@ -1,0 +1,11 @@
+#ifndef C_HELLO_H
+#define C_HELLO_H
+#include <iostream>
+
+namespace hello {
+
+    void print_hello();
+
+} // end of namespace hello
+
+#endif

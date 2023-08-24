@@ -1,0 +1,2 @@
+def PROJECT_NAME_cli():
+    print("hello buddy ! You are not using Cython bad boy !")
