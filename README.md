@@ -41,7 +41,7 @@ hello buddy ! You are not using Cython bad boy !
 ```
 For a Cython project, this message:
 ```
-"hello buddy ! You are using Cython good boy !"
+hello buddy ! You are using Cython good boy !
 ```
 Then you are good to go !
 
